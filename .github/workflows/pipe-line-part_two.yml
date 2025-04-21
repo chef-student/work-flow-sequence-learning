@@ -1,0 +1,19 @@
+name: 'Pipe Line Part Two'
+
+on:
+  workflow_run:
+    workflows:
+      - 'Pipe Line Part One'
+    types:
+      - completed
+
+jobs:
+  job_one:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Display Message
+      run: |
+        echo 'Pipe Line Part Two Triggered'
